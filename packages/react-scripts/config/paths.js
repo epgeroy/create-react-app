@@ -90,6 +90,7 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
+  appEntryPoints: resolveApp('src/entry-point.config.json'),
 };
 
 // @remove-on-eject-begin

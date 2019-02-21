@@ -1,5 +1,6 @@
 {
-  "private": true,
+  "name": "create-react-app-p1",
+  "version": "0.0.1",
   "workspaces": [
     "packages/*"
   ],
