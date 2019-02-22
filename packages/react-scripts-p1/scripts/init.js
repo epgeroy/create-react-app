@@ -95,10 +95,10 @@ module.exports = function(
 
   // Setup the script rules
   appPackage.scripts = {
-    start: 'react-scripts start',
-    build: 'react-scripts build',
-    test: 'react-scripts test',
-    eject: 'react-scripts eject',
+    start: 'react-scripts-p1 start',
+    build: 'react-scripts-p1 build',
+    test: 'react-scripts-p1 test',
+    eject: 'react-scripts-p1 eject',
   };
 
   // Setup the eslint config
