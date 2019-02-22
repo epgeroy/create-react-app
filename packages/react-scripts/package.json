@@ -1,6 +1,6 @@
 {
-  "name": "p1-react-scripts",
-  "version": "2.1.4",
+  "name": "react-scripts-p1",
+  "version": "0.0.1",
   "description": "p1stache Configuration and scripts for Create React App.",
   "repository": "P1stache/create-react-app",
   "license": "MIT",
@@ -8,7 +8,7 @@
     "node": ">=6"
   },
   "bugs": {
-    "url": "https://github.com/P1stache/create-react-app"
+    "url": "https://github.com/P1stache/create-react-app/issues"
   },
   "files": [
     "bin",
