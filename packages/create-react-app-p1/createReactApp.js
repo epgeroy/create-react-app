@@ -131,8 +131,8 @@ if (program.info) {
         System: ['OS', 'CPU'],
         Binaries: ['Node', 'npm', 'Yarn'],
         Browsers: ['Chrome', 'Edge', 'Internet Explorer', 'Firefox', 'Safari'],
-        npmPackages: ['react', 'react-dom', 'react-scripts'],
-        npmGlobalPackages: ['create-react-app'],
+        npmPackages: ['react', 'react-dom', 'react-scripts-p1'],
+        npmGlobalPackages: ['create-react-app-p1'],
       },
       {
         clipboard: false,
@@ -245,7 +245,7 @@ function createApp(
       )
     );
     // Fall back to latest supported react-scripts on Node 4
-    version = 'react-scripts@0.9.x';
+    version = 'react-scripts-p1@latest';
   }
 
   if (!useYarn) {
@@ -262,7 +262,7 @@ function createApp(
         );
       }
       // Fall back to latest supported react-scripts for npm 3
-      version = 'react-scripts@0.9.x';
+      version = 'react-scripts-p1@latest';
     }
   } else if (usePnp) {
     const yarnInfo = checkYarnVersion();
@@ -442,7 +442,7 @@ function run(
       `
       );
 
-      if (version === 'react-scripts@0.9.x') {
+      if (version === 'react-scripts-p1@latest') {
         console.log(
           chalk.yellow(
             `\nNote: the project was bootstrapped with an old unsupported version of tools.\n` +
@@ -491,7 +491,7 @@ function run(
 }
 
 function getInstallPackage(version, originalDirectory) {
-  let packageToInstall = 'react-scripts';
+  let packageToInstall = 'react-scripts-p1';
   const validSemver = semver.valid(version);
   if (validSemver) {
     packageToInstall += `@${validSemver}`;
@@ -687,7 +687,7 @@ function checkAppName(appName) {
   }
 
   // TODO: there should be a single place that holds the dependencies
-  const dependencies = ['react', 'react-dom', 'react-scripts'].sort();
+  const dependencies = ['react', 'react-dom', 'react-scripts-p1'].sort();
   if (dependencies.indexOf(appName) >= 0) {
     console.error(
       chalk.red(
