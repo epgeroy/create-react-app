@@ -11,7 +11,14 @@
 const path = require('path');
 const fs = require('fs');
 const url = require('url');
-const p1Config = require('../template/src/p1.config.json');
+
+let p1Config;
+
+try {
+  p1Config = require('../src/p1.config.json');
+} catch (error) {
+  p1Config = require('../template/src/p1.config.json');
+}
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebook/create-react-app/issues/637
