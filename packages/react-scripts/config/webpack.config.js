@@ -78,10 +78,17 @@ function getUserDefinedEntryPoints(isDevEnv) {
   let userDefinedEntryPoints = {};
 
   Object.keys(p1Config.entryPoints).forEach(key => {
-    userDefinedEntryPoints[key] = getEntryPointArray(
-      isDevEnv,
-      paths.loadEntryPoint('template/' + p1Config.entryPoints[key])
-    );
+    try {
+      userDefinedEntryPoints[key] = getEntryPointArray(
+        isDevEnv,
+        paths.loadEntryPoint(p1Config.entryPoints[key])
+      );
+    } catch (error) {
+      userDefinedEntryPoints[key] = getEntryPointArray(
+        isDevEnv,
+        paths.loadEntryPoint('template/' + p1Config.entryPoints[key])
+      );
+    }
   });
 
   return userDefinedEntryPoints;
