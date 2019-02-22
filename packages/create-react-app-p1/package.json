@@ -5,7 +5,7 @@
     "react"
   ],
   "description": "p1stache create react apps with no build configuration.",
-  "repository": "facebook/create-react-app",
+  "repository": "P1stache/create-react-app",
   "license": "MIT",
   "engines": {
     "node": ">=4"
@@ -19,7 +19,7 @@
     "yarn.lock.cached"
   ],
   "bin": {
-    "create-react-app": "./index.js"
+    "create-react-app-p1": "./index.js"
   },
   "dependencies": {
     "chalk": "1.1.3",
