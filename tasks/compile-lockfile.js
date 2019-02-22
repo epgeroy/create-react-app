@@ -42,7 +42,7 @@ try {
       __dirname,
       '..',
       'packages',
-      'create-react-app',
+      'create-react-app-p1',
       'yarn.lock.cached'
     )
   );
