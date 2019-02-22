@@ -31,6 +31,8 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin-alt');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
+const p1Config = require('../template/src/p1.config.json');
+
 // @remove-on-eject-begin
 const getCacheIdentifier = require('react-dev-utils/getCacheIdentifier');
 // @remove-on-eject-end
@@ -65,13 +67,14 @@ function getEntryPointArray(isDevEnv, path) {
   return entrypointArray;
 }
 
-function getUserDefinedEntryPoints(isDevEnv, path) {
-  let userDefinedEntryPoints = [];
+function getUserDefinedEntryPoints(isDevEnv) {
+  let userDefinedEntryPoints = {};
 
-  import(path).then(({ default: entryPoints }) => {
-    entryPoints.forEach(path => {
-      userDefinedEntryPoints.push(getEntryPointArray(isDevEnv, path));
-    });
+  Object.keys(p1Config.entryPoints).forEach(key => {
+    userDefinedEntryPoints[key] = getEntryPointArray(
+      isDevEnv,
+      paths.loadEntryPoint('template/' + p1Config.entryPoints[key])
+    );
   });
 
   return userDefinedEntryPoints;
@@ -161,7 +164,11 @@ module.exports = function(webpackEnv) {
       : isEnvDevelopment && 'eval-source-map',
     // These are the "entry points" to our application.
     // This means they will be the "root" imports that are included in JS bundle.
-    entry: getUserDefinedEntryPoints(isEnvDevelopment, paths.appEntryPoints),
+    entry: getUserDefinedEntryPoints(isEnvDevelopment),
+    // entry: {
+
+    //   poc:  getEntryPointArray(isEnvDevelopment, paths.appIndexJs),
+    // },
     output: {
       // The build folder.
       path: isEnvProduction ? paths.appBuild : undefined,

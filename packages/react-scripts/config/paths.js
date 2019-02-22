@@ -11,6 +11,7 @@
 const path = require('path');
 const fs = require('fs');
 const url = require('url');
+const p1Config = require('../template/src/p1.config.json');
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebook/create-react-app/issues/637
@@ -77,10 +78,9 @@ const resolveModule = (resolveFn, filePath) => {
 module.exports = {
   dotenv: resolveApp('.env'),
   appPath: resolveApp('.'),
-  appBuild: resolveApp('build'),
+  appBuild: resolveApp(p1Config.appBuild),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
-  appIndexJs: resolveModule(resolveApp, 'src/index'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
   appTsConfig: resolveApp('tsconfig.json'),
@@ -91,6 +91,9 @@ module.exports = {
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
   appEntryPoints: resolveApp('src/entry-point.config.json'),
+  loadEntryPoint: function(path) {
+    return resolveModule(resolveApp, path);
+  },
 };
 
 // @remove-on-eject-begin
@@ -118,6 +121,9 @@ module.exports = {
   ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3
   appTypeDeclarations: resolveApp('src/react-app-env.d.ts'),
   ownTypeDeclarations: resolveOwn('lib/react-app.d.ts'),
+  loadEntryPoint: function(path) {
+    return resolveModule(resolveApp, path);
+  },
 };
 
 const ownPackageJson = require('../package.json');
@@ -152,6 +158,9 @@ if (
     ownNodeModules: resolveOwn('node_modules'),
     appTypeDeclarations: resolveOwn('template/src/react-app-env.d.ts'),
     ownTypeDeclarations: resolveOwn('lib/react-app.d.ts'),
+    loadEntryPoint: function(path) {
+      return resolveModule(resolveApp, path);
+    },
   };
 }
 // @remove-on-eject-end

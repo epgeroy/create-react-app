@@ -1,0 +1,6 @@
+{
+  "entryPoints": {
+    "main": "src/index"
+  },
+  "appBuild": "wwwroot/build"
+}
