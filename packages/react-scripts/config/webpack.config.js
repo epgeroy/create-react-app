@@ -31,7 +31,14 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin-alt');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
-const p1Config = require('../template/src/p1.config.json');
+
+let p1Config;
+
+try {
+  p1Config = require('../src/p1.config.json');
+} catch (error) {
+  p1Config = require('../template/src/p1.config.json');
+}
 
 // @remove-on-eject-begin
 const getCacheIdentifier = require('react-dev-utils/getCacheIdentifier');
