@@ -245,7 +245,7 @@ function createApp(
       )
     );
     // Fall back to latest supported react-scripts on Node 4
-    version = 'react-scripts-p1@latest';
+    version = 'react-scripts@0.9.x';
   }
 
   if (!useYarn) {
@@ -262,7 +262,7 @@ function createApp(
         );
       }
       // Fall back to latest supported react-scripts for npm 3
-      version = 'react-scripts-p1@latest';
+      version = 'react-scripts@0.9.x';
     }
   } else if (usePnp) {
     const yarnInfo = checkYarnVersion();
@@ -442,7 +442,7 @@ function run(
       `
       );
 
-      if (version === 'react-scripts-p1@latest') {
+      if (version === 'react-scripts@0.9.x') {
         console.log(
           chalk.yellow(
             `\nNote: the project was bootstrapped with an old unsupported version of tools.\n` +

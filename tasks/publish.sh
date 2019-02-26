@@ -37,7 +37,7 @@ fi
 
 # Compile
 cd packages/react-error-overlay/
-npm run build:prod
+npm run build
 cd ../..
 
 # Get 2FA when not CI
