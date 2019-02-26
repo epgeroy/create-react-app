@@ -2,13 +2,13 @@
   "name": "react-scripts-p1",
   "version": "0.0.8",
   "description": "p1stache Configuration and scripts for Create React App.",
-  "repository": "P1stache/create-react-app",
+  "repository": "p1stache/create-react-app",
   "license": "MIT",
   "engines": {
     "node": ">=6"
   },
   "bugs": {
-    "url": "https://github.com/P1stache/create-react-app/issues"
+    "url": "https://github.com/p1stache/create-react-app/issues"
   },
   "files": [
     "bin",

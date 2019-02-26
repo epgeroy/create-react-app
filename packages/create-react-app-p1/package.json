@@ -5,13 +5,13 @@
     "react"
   ],
   "description": "p1stache create react apps with no build configuration.",
-  "repository": "P1stache/create-react-app",
+  "repository": "p1stache/create-react-app",
   "license": "MIT",
   "engines": {
     "node": ">=4"
   },
   "bugs": {
-    "url": "https://github.com/P1stache/create-react-app/issues"
+    "url": "https://github.com/p1stache/create-react-app/issues"
   },
   "files": [
     "index.js",
