@@ -51,6 +51,14 @@ const createDevServerConfig = require('../config/webpackDevServer.config');
 const useYarn = fs.existsSync(paths.yarnLockFile);
 const isInteractive = process.stdout.isTTY;
 
+console.log(
+  `--------------------------------------------------------------------------------`
+);
+console.log(`this is create-react-scripts-p1`);
+console.log(
+  `--------------------------------------------------------------------------------`
+);
+
 // Warn and crash if required files are missing
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
   process.exit(1);
