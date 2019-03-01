@@ -19,6 +19,14 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 const envPublicUrl = process.env.PUBLIC_URL;
 
+let p1Config;
+
+try {
+  p1Config = require('../src/p1.config.json');
+} catch (error) {
+  p1Config = require('../template/src/p1.config.json');
+}
+
 function ensureSlash(inputPath, needsSlash) {
   const hasSlash = inputPath.endsWith('/');
   if (hasSlash && !needsSlash) {
@@ -90,6 +98,9 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
+  loadEntryPoint: function(path) {
+    return resolveModule(resolveApp, path);
+  },
 };
 
 // @remove-on-eject-begin
@@ -117,6 +128,9 @@ module.exports = {
   ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3
   appTypeDeclarations: resolveApp('src/react-app-env.d.ts'),
   ownTypeDeclarations: resolveOwn('lib/react-app.d.ts'),
+  loadEntryPoint: function(path) {
+    return resolveModule(resolveApp, path);
+  },
 };
 
 const ownPackageJson = require('../package.json');
@@ -151,6 +165,9 @@ if (
     ownNodeModules: resolveOwn('node_modules'),
     appTypeDeclarations: resolveOwn('template/src/react-app-env.d.ts'),
     ownTypeDeclarations: resolveOwn('lib/react-app.d.ts'),
+    loadEntryPoint: function(path) {
+      return resolveModule(resolveApp, path);
+    },
   };
 }
 // @remove-on-eject-end
