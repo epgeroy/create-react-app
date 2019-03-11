@@ -19,13 +19,7 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 const envPublicUrl = process.env.PUBLIC_URL;
 
-let p1Config;
-
-try {
-  p1Config = require('../src/p1.config.json');
-} catch (error) {
-  p1Config = require('../template/src/p1.config.json');
-}
+const p1Config = resolveApp('src') + '/p1.config.json';
 
 function ensureSlash(inputPath, needsSlash) {
   const hasSlash = inputPath.endsWith('/');

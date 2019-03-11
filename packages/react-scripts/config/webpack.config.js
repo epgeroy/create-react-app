@@ -50,13 +50,7 @@ const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
-let p1Config;
-
-try {
-  p1Config = require('../src/p1.config.json');
-} catch (error) {
-  p1Config = require('../template/src/p1.config.json');
-}
+const p1Config = require(paths.appSrc + '/p1.config.json');
 
 // We do this so we can introduce the webpackHotDevClient
 // which enhances the webpack development server with react specific capabilities
