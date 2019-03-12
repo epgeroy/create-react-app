@@ -174,7 +174,9 @@ module.exports = function(webpackEnv) {
     entry: getUserDefinedEntryPoints(isEnvDevelopment),
     output: {
       // The build folder.
-      path: isEnvProduction ? paths.appBuild : undefined,
+      path: isEnvProduction
+        ? paths.appPath + '/' + p1Config.appBuild
+        : undefined,
       // Add /* filename */ comments to generated require()s in the output.
       pathinfo: isEnvDevelopment,
       // There will be one main bundle, and one file per asynchronous chunk.
