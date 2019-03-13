@@ -1,7 +1,7 @@
 {
   "name": "react-scripts-p1",
   "version": "0.0.32",
-  "description": "p1stache configuration and scripts for Create React App.",
+  "description": "A variation on Create React App. It allows you to configure multiple entry points as well as your outputh path through a p1.config.json file",
   "repository": "p1stache/create-react-app",
   "license": "MIT",
   "engines": {
