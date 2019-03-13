@@ -129,13 +129,6 @@ const reactScriptsLinked =
   fs.existsSync(reactScriptsPath) &&
   fs.lstatSync(reactScriptsPath).isSymbolicLink();
 
-const p1DevConfig = {
-  entryPoints: {
-    main: 'template/src/index',
-  },
-  appBuild: 'wwwroot/build',
-};
-
 // config before publish: we're in ./packages/react-scripts/config/
 if (
   !reactScriptsLinked &&
