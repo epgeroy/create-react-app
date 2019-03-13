@@ -67,6 +67,7 @@ function getEntryPointArray(isDevEnv, path) {
   return entrypointArray;
 }
 
+// We use this to load the entry points from p1.config.json configuration file
 function getUserDefinedEntryPoints(isDevEnv) {
   let userDefinedEntryPoints = {};
 
@@ -175,7 +176,8 @@ module.exports = function(webpackEnv) {
     output: {
       // The build folder.
       path: isEnvProduction
-        ? paths.appPath + '/' + p1Config.appBuild
+        ? // set the user defined build path for production environment
+          paths.appPath + '/' + p1Config.appBuild
         : undefined,
       // Add /* filename */ comments to generated require()s in the output.
       pathinfo: isEnvDevelopment,
