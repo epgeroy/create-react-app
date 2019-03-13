@@ -68,7 +68,7 @@ function getEntryPointArray(isDevEnv, path) {
 }
 
 // We use this to load the entry points from p1.config.json configuration file
-function getUserDefinedEntryPoints(isDevEnv) {
+function getAllEntryPointsConfigured(isDevEnv) {
   let userDefinedEntryPoints = {};
 
   Object.keys(p1Config.entryPoints).forEach(key => {
@@ -172,7 +172,7 @@ module.exports = function(webpackEnv) {
       : isEnvDevelopment && 'eval-source-map',
     // These are the "entry points" to our application.
     // This means they will be the "root" imports that are included in JS bundle.
-    entry: getUserDefinedEntryPoints(isEnvDevelopment),
+    entry: getAllEntryPointsConfigured(isEnvDevelopment),
     output: {
       // The build folder.
       path: isEnvProduction
