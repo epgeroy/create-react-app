@@ -55,6 +55,7 @@ const WARN_AFTER_CHUNK_GZIP_SIZE = 1024 * 1024;
 
 const isInteractive = process.stdout.isTTY;
 
+// load user defined build path form p1.config.json configuration file
 const p1Config = require(paths.appSrc + '/p1.config.json');
 const appBuild = paths.appPath + '/' + p1Config.appBuild;
 
